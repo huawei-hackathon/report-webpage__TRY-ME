@@ -1,0 +1,23 @@
+what kind of data is shown in report?
+
+- Anomalies + Warnings
+- Graphs of heart data, steps data + compare to average
+- Walking asymmetry
+- Food groups consumption
+- Sleep data
+    - Average time asleep
+
+
+- average 
+
+- graph of resting heart rate
+
+- graph of average steps
+
+- graph of average sleep time
+
+- room data (heatmap!!!!)
+
+- walking assymetry 
+
+- meals (number of meals with veg, carbs, meat)
