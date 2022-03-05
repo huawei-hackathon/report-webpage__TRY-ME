@@ -10826,13 +10826,15 @@ a:focus {
 
 .chart-area {
   position: relative;
-  height: 10rem;
+  min-height: 16rem;
+  height: 90%;
   width: 100%;
 }
 
 @media (min-width: 768px) {
   .chart-area {
     height: 20rem;
+    min-height: 90%;
   }
 }
 

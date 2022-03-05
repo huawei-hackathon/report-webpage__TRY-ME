@@ -21,3 +21,6 @@ what kind of data is shown in report?
 - walking assymetry 
 
 - meals (number of meals with veg, carbs, meat)
+
+meals per day 
+amount of time spent in each room per day 

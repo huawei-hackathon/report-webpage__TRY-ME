@@ -32,10 +32,10 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
     datasets: [{
-      label: "Earnings",
-      lineTension: 0.3,
+      label: "Average Resting Heart Rate",
+      lineTension: 0,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
       pointRadius: 3,
@@ -44,9 +44,9 @@ var myLineChart = new Chart(ctx, {
       pointHoverRadius: 3,
       pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-      pointHitRadius: 10,
+      pointHitRadius: 2,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+      data: [97, 109, 104, 107, 94, 98, 96, 93, 101, 109, 98, 90, 106, 99, 91, 97, 104, 90, 99, 103, 90, 110, 97, 94, 94, 101, 91, 106, 107, 95, 103],
     }],
   },
   options: {
@@ -74,11 +74,13 @@ var myLineChart = new Chart(ctx, {
       }],
       yAxes: [{
         ticks: {
-          maxTicksLimit: 5,
-          padding: 10,
+          // begin at zero scales to graph better, seems less crazy
+          beginAtZero: true,
+          maxTicksLimit: 8,
+          padding: 20,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return number_format(value);
           }
         },
         gridLines: {
@@ -110,7 +112,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
         }
       }
     }
