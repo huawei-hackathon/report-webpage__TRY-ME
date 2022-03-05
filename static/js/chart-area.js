@@ -32,7 +32,7 @@ var heartRateHTML = document.getElementById("heartRateChart");
 var heartRateChart = new Chart(heartRateHTML, {
   type: 'line',
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    labels: datesOfMonth,
     datasets: [{
       label: "Average Resting Heart Rate",
       lineTension: 0,
@@ -46,7 +46,7 @@ var heartRateChart = new Chart(heartRateHTML, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 2,
       pointBorderWidth: 2,
-      data: [97, 109, 104, 107, 94, 98, 96, 93, 101, 109, 98, 90, 106, 99, 91, 97, 104, 90, 99, 103, 90, 110, 97, 94, 94, 101, 91, 106, 107, 95, 103],
+      data: heartRateList,
     }],
   },
   options: {
@@ -111,7 +111,7 @@ var heartRateChart = new Chart(heartRateHTML, {
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {
-          return number_format(tooltipItem.xLabel) + '/{Month}/{Year}';
+          return number_format(tooltipItem.xLabel) + ' '+ Month + ' ' + Year;
         },
         title: function(tooltipItem, chart) {
           return number_format(tooltipItem[0].yLabel) + ' bpm';
@@ -126,7 +126,7 @@ var walkingAsymmetryHTML = document.getElementById("walkingAsymmetryAreaChart");
 var walkingAsymmetryChart = new Chart(walkingAsymmetryHTML, {
   type: 'line',
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    labels: datesOfMonth,
     datasets: [{
       label: "Walking Asymmetry",
       lineTension: 0,
@@ -140,7 +140,7 @@ var walkingAsymmetryChart = new Chart(walkingAsymmetryHTML, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 2,
       pointBorderWidth: 2,
-      data: [7, 4, 5, 4, 3, 7, 8, 3, 3, 5, 5, 6, 7, 3, 8, 5, 6, 8, 5, 3, 6, 5, 8, 7, 3, 8, 5, 3, 5, 6, 3],
+      data: asymmetryList,
     }],
   },
   options: {
@@ -205,7 +205,7 @@ var walkingAsymmetryChart = new Chart(walkingAsymmetryHTML, {
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {
-          return number_format(tooltipItem.xLabel) + '/{Month}/{Year}';
+          return number_format(tooltipItem.xLabel) + ' '+ Month + ' '+ Year;
         },
         title: function(tooltipItem, chart) {
           return number_format(tooltipItem[0].yLabel) + '%';

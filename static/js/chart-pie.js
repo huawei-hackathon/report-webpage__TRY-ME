@@ -7,11 +7,11 @@ var roomTimePieChartHTML = document.getElementById("roomTimePieChart");
 var roomTimePieChart = new Chart(roomTimePieChartHTML, {
   type: 'doughnut',
   data: {
-    labels: ["Living Room", "Kitchen", "Toilet", "Bedroom"],
+    labels: bluetoothPieChartLabels,
     datasets: [{
-      data: [55, 30, 15, 20],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      data: bluetoothPieChartData,
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#e74a3b'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#A8362C'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },
@@ -39,11 +39,11 @@ var dietPieChartHTML = document.getElementById("dietPieChart");
 var dietPieChart = new Chart(dietPieChartHTML, {
   type: 'doughnut',
   data: {
-    labels: ["Carbohydrates", "Vegetable", "Protein", "idk"],
+    labels: dietLabels,
     datasets: [{
-      data: [60, 20, 40, 10],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      data: dietData,
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#e74a3b'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#A8362C'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },

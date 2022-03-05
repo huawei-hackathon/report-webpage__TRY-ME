@@ -32,13 +32,13 @@ var stepsBarChartHTML = document.getElementById("stepsBarChart");
 var stepsBarChart = new Chart(stepsBarChartHTML, {
   type: 'bar',
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    labels: datesOfMonth,
     datasets: [{
       label: "Step Count",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [6869, 4430, 6471, 3305, 5604, 4196, 4028, 6165, 5460, 3464, 4264, 6391, 7897, 4917, 3962, 5551, 4210, 5009, 6078, 4491, 7890, 3561, 6339, 3470, 6215, 7790, 7030, 7685, 5829, 4742, 4405],
+      data: stepsList,
     }],
   },
   options: {
@@ -102,7 +102,7 @@ var stepsBarChart = new Chart(stepsBarChartHTML, {
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {
-          return number_format(tooltipItem.xLabel) + '/{Month}/{Year}';
+          return number_format(tooltipItem.xLabel) + ' '+ Month + ' '+ Year;
         },
         title: function(tooltipItem, chart) {
           return number_format(tooltipItem[0].yLabel) + ' Steps';
@@ -118,13 +118,13 @@ var sleepTimeBarChartHTML = document.getElementById("sleepTimeBarChart");
 var sleepTimeBarChart = new Chart(sleepTimeBarChartHTML, {
   type: 'bar',
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    labels: datesOfMonth,
     datasets: [{
       label: "Sleep Time",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: ['9.3', '8.7', '9.1', '8.9', '9.3', '7.5', '8.4', '9.1', '8.5', '9.4', '9.8', '8.5', '8.4', '10.0', '9.8', '8.0', '9.9', '8.3', '8.8', '7.7', '7.7', '8.1', '8.3', '7.9', '7.7', '9.5', '8.1', '7.5', '8.7', '8.5', '9.8'],
+      data: sleepTimeList,
     }],
   },
   options: {
@@ -188,11 +188,11 @@ var sleepTimeBarChart = new Chart(sleepTimeBarChartHTML, {
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {
-          return number_format(tooltipItem.xLabel) + '/{Month}/{Year}';
+          return number_format(tooltipItem.xLabel) + ' '+ Month + ' '+ Year;
         },
         title: function(tooltipItem, chart) {
           return tooltipItem[0].yLabel + ' Hours';
-     z   }
+        }
       }
     },
   }
@@ -203,35 +203,9 @@ var indoorLocationBarChartHTML = document.getElementById("indoorLocationBarChart
 var indoorLocationBarChart = new Chart(indoorLocationBarChartHTML, {
   type: 'bar',
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-    datasets: [{
-      label: "Living Room",
-      backgroundColor: "#4e73df",
-      hoverBackgroundColor: "#2e59d9",
-      borderColor: "#4e73df",
-      data: [8.6, 7.0, 11.3, 8.1, 8.4, 9.4, 8.1, 8.8, 8.5, 8.2, 7.4, 8.9, 8.3, 7.8, 8.4, 6.8, 8.7, 6.6, 9.0, 7.3, 5.0, 9.7, 5.1, 4.6, 8.2, 7.9, 4.4, 7.4, 8.3, 6.7, 8.0]
-    }, {
-      label: "Bedroom",
-      backgroundColor: "#e74a3b",
-      hoverBackgroundColor: "#A8362C",
-      data: [6.6, 6.9, 6.8, 7.9, 6.5, 6.4, 6.2, 6.3, 6.5, 7.3, 6.6, 7.8, 7.3, 7.3, 7.2, 7.1, 6.5, 7.9, 6.4, 6.7, 7.5, 6.8, 7.8, 7.7, 6.0, 7.4, 7.4, 6.0, 7.3, 6.7, 7.7]
-    }, {
-      label: "Bathroom",
-      backgroundColor: "#36b9cc",
-      hoverBackgroundColor: "#247E8C",
-      data: [0.7, 1.7, 0.5, 0.8, 0.5, 1.0, 1.1, 0.8, 0.6, 1.4, 1.0, 1.4, 0.6, 1.0, 1.8, 0.8, 0.7, 1.9, 1.8, 1.7, 1.9, 1.5, 1.9, 1.9, 0.6, 2.0, 1.7, 1.9, 0.5, 1.7, 1.5]
-    }, {
-      label: "Kitchen",
-      backgroundColor: "#1cc88a",
-      hoverBackgroundColor: "#13875D",
-      data: [3.4, 3.0, 3.3, 3.8, 3.0, 3.6, 4.1, 4.1, 4.0, 3.3, 3.8, 3.4, 3.6, 4.3, 3.3, 3.3, 3.3, 3.9, 3.9, 3.3, 4.3, 3.4, 3.6, 4.1, 3.5, 3.1, 4.5, 3.8, 3.1, 3.4, 4.3]
-    }, {
-      label: "Outside",
-      backgroundColor: "#C0CCC9",
-      hoverBackgroundColor: "#88908E",
-      data: [4.7, 5.4, 2.1, 3.4, 5.6, 3.6, 4.5, 4.0, 4.4, 3.8, 5.2, 2.5, 4.2, 3.6, 3.3, 6.0, 4.8, 3.7, 2.9, 5.0, 5.3, 2.6, 5.6, 5.7, 5.7, 3.6, 6.0, 4.9, 4.8, 5.5, 2.5]
-    }
-  ]},
+    labels: datesOfMonth,
+    datasets: bluetoothGraphDatasets,
+  },
   options: {
     maintainAspectRatio: false,
     layout: {
@@ -295,7 +269,7 @@ var indoorLocationBarChart = new Chart(indoorLocationBarChartHTML, {
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {
-          return number_format(tooltipItem.xLabel) + '/{Month}/{Year}';
+          return number_format(tooltipItem.xLabel) + ' ' + Month + ' ' + Year;
         },
         title: function(tooltipItem, chart) {
           return tooltipItem[0].yLabel + ' Hours'
