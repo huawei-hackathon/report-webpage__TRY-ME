@@ -10840,6 +10840,20 @@ a:focus {
 
 .chart-bar {
   position: relative;
+  min-height: 20rem;
+  height: 90%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .chart-bar {
+    height: 20rem;
+    min-height: 90%;
+  }
+}
+
+.chart-bar {
+  position: relative;
   height: 10rem;
   width: 100%;
 }
