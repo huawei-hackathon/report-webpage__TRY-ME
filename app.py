@@ -82,6 +82,10 @@ def getReport(reportUUID):
     else:
         return flask.render_template('report-not-found.html')
 
+@app.route('/customizeReport')
+def customizeReport():
+    return flask.render_template('customizeReport.html')
+
 @app.errorhandler(404)
 def page_not_found(e):
     return flask.render_template('404.html'), 404
