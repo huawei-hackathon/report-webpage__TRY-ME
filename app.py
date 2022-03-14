@@ -52,7 +52,25 @@ def getReport(reportUUID):
         foodTableHeaders = ["Food", "Number of Times"]
         foodTableData = [['Food 1', 50], ['Food 2', 30], ['Food 3', 20], ['Food 4', 10], ['Food 5', 5], ['Food 6', 2], ['Food 7', 1]]
 
+        bedroomTime = [{"starting_time":1647187200000, "ending_time":1647216000000}, {"starting_time":1647262800000, "ending_time":1647273600000}]
+        kitchenTime = [{"starting_time":1647216000000, "ending_time":1647223200000}, {"starting_time":1647244800000, "ending_time":1647252000000}]
+        livingRoomTime = [{"starting_time":1647223200000, "ending_time":1647244800000}]
+        toiletTime = [{"starting_time":1647252000000, "ending_time":1647255600000}]
+        outsideTime = [{"starting_time":1647255600000, "ending_time":1647262800000}]
+
+        graphStart = 1647187200000
+        graphEnd = 1647273600000
+
         data = {
+            "graphStart": graphStart,
+            "graphEnd": graphEnd,
+
+            "bedroomTime": bedroomTime,
+            "kitchenTime": kitchenTime,
+            "livingRoomTime": livingRoomTime,
+            "toiletTime": toiletTime,
+            "outsideTime": outsideTime,
+
             "foodTableHeaders": foodTableHeaders,
             "foodTableData": foodTableData,
 
