@@ -1,6 +1,9 @@
 // Set new default font family and font color to mimic Bootstrap's default styling
+// const Chart = require('chart.js');
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
+// const Annotation = require("chartjs-plugin-annotation.js");
+// Chart.plugins.register("chartjs-plugin-annotation.js");
 
 function number_format(number, decimals, dec_point, thousands_sep) {
   // *     example: number_format(1234.56, 2, ',', ' ');
@@ -38,14 +41,14 @@ var heartRateChart = new Chart(heartRateHTML, {
       lineTension: 0,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
-      pointRadius: 3,
-      pointBackgroundColor: "rgba(78, 115, 223, 1)",
-      pointBorderColor: "rgba(78, 115, 223, 1)",
-      pointHoverRadius: 3,
+      pointRadius: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3],
+      pointBackgroundColor: ['rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(252, 0, 0, 0.8)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)', 'rgba(78, 115, 223, 1)'],
+      pointBorderColor: 'rgba(78, 115, 223, 1)',
+      pointHoverRadius: 0,
       pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-      pointHitRadius: 2,
-      pointBorderWidth: 2,
+      pointHitRadius: 0,
+      pointBorderWidth: 0,
       data: heartRateList,
     }],
   },
@@ -109,14 +112,80 @@ var heartRateChart = new Chart(heartRateHTML, {
       intersect: false,
       mode: 'index',
       caretPadding: 10,
-      callbacks: {
-        label: function(tooltipItem, chart) {
-          return number_format(tooltipItem.xLabel) + ' '+ Month + ' ' + Year;
+      // callbacks: {
+      //   label: function(tooltipItem, chart) {
+      //     return number_format(tooltipItem.xLabel) + ' '+ Month + ' ' + Year;
+      //   },
+      //   title: function(tooltipItem, chart) {
+      //     return number_format(tooltipItem[0].yLabel) + ' bpm';
+      //   }
+      // }
+    },
+    annotation: {
+      annotations:[{
+        type: 'line',
+        drawTime: 'afterDatasetsDraw',
+        id: 'a-line-1',
+        mode: 'horizontal',
+        scaleID: 'y-axis-0',
+        value: 122,
+        // endValue: 30,
+        borderColor: 'red',
+        borderWidth: 2,
+        // borderDash: [2, 2],
+        // borderDashOffset: 5,
+        onMouseover: function(e) {
+          // The annotation is is bound to the `this` variable
+          console.log("Annotation", e.type, this);
         },
-        title: function(tooltipItem, chart) {
-          return number_format(tooltipItem[0].yLabel) + ' bpm';
+        label: {
+            backgroundColor: 'rgba(256,256,256,0.7)',
+            fontFamily: "Nunito",
+            fontSize: 12,
+            // fontStyle: "bold",
+            fontColor: 'black',
+            xPadding: 8,
+            yPadding: 4,
+            cornerRadius: 4,
+            position: "center",
+            xAdjust: 0,
+            yAdjust: 0,
+            enabled: true,
+            content: "Predicted High"
         }
-      }
+      },
+      {
+          type: 'line',
+          drawTime: 'afterDatasetsDraw',
+          id: 'b-line-1',
+          mode: 'horizontal',
+          scaleID: 'y-axis-0',
+          value: 90,
+          // endValue: 30,
+          borderColor: 'teal',
+          borderWidth: 2,
+          // borderDash: [2, 2],
+          // borderDashOffset: 5,
+          onMouseover: function(e) {
+            // The annotation is is bound to the `this` variable
+            console.log("Annotation", e.type, this);
+          },
+          label: {
+              backgroundColor: 'rgba(256,256,256,0.7)',
+              fontFamily: "Nunito",
+              fontSize: 12,
+              // fontStyle: "bold",
+              fontColor: 'black',
+              xPadding: 8,
+              yPadding: 4,
+              cornerRadius: 4,
+              position: "center",
+              xAdjust: 0,
+              yAdjust: 0,
+              enabled: true,
+              content: "Predicted Low"
+          }
+      }]
     }
   }
 });
@@ -211,6 +280,72 @@ var walkingAsymmetryChart = new Chart(walkingAsymmetryHTML, {
           return tooltipItem[0].yLabel + '%';
         }
       }
+    },
+    annotation: {
+      annotations:[{
+        type: 'line',
+        drawTime: 'afterDatasetsDraw',
+        id: 'a-line-1',
+        mode: 'horizontal',
+        scaleID: 'y-axis-0',
+        value: 9,
+        // endValue: 30,
+        borderColor: 'red',
+        borderWidth: 2,
+        // borderDash: [2, 2],
+        // borderDashOffset: 5,
+        onMouseover: function(e) {
+          // The annotation is is bound to the `this` variable
+          console.log("Annotation", e.type, this);
+        },
+        label: {
+            backgroundColor: 'rgba(256,256,256,0.7)',
+            fontFamily: "Nunito",
+            fontSize: 12,
+            // fontStyle: "bold",
+            fontColor: 'black',
+            xPadding: 8,
+            yPadding: 4,
+            cornerRadius: 4,
+            position: "center",
+            xAdjust: 0,
+            yAdjust: 0,
+            enabled: true,
+            content: "Predicted High"
+        }
+      },
+      {
+          type: 'line',
+          drawTime: 'afterDatasetsDraw',
+          id: 'b-line-1',
+          mode: 'horizontal',
+          scaleID: 'y-axis-0',
+          value: 6,
+          // endValue: 30,
+          borderColor: 'teal',
+          borderWidth: 2,
+          // borderDash: [2, 2],
+          // borderDashOffset: 5,
+          onMouseover: function(e) {
+            // The annotation is is bound to the `this` variable
+            console.log("Annotation", e.type, this);
+          },
+          label: {
+              backgroundColor: 'rgba(256,256,256,0.7)',
+              fontFamily: "Nunito",
+              fontSize: 12,
+              // fontStyle: "bold",
+              fontColor: 'black',
+              xPadding: 8,
+              yPadding: 4,
+              cornerRadius: 4,
+              position: "center",
+              xAdjust: 0,
+              yAdjust: 0,
+              enabled: true,
+              content: "Predicted Low"
+          }
+      }]
     }
   }
 });
