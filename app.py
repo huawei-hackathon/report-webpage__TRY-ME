@@ -49,7 +49,13 @@ def getReport(reportUUID):
         sleepTimeColors = ['rgba(78, 115, 223, 1)' if i > sleepTimeAnomaly[0] and i < sleepTimeAnomaly[1] else 'rgba(252, 0, 0, 0.8)' for i in sleepTimeList]
         sleepTimeHighlightColors = ['#2e59d9' if i > sleepTimeAnomaly[0] and i < sleepTimeAnomaly[1] else 'rgba(145, 0, 0, 0.8)' for i in sleepTimeList]
 
+        foodTableHeaders = ["Food", "Number of Times"]
+        foodTableData = [['Food 1', 50], ['Food 2', 30], ['Food 3', 20], ['Food 4', 10], ['Food 5', 5], ['Food 6', 2], ['Food 7', 1]]
+
         data = {
+            "foodTableHeaders": foodTableHeaders,
+            "foodTableData": foodTableData,
+
             "heartRateAnomaly":heartRateAnomaly,
             "stepCountAnomaly":stepCountAnomaly,
             "stepAsymmetryAnomaly":stepAsymmetryAnomaly,
