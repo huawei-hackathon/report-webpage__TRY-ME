@@ -133,8 +133,8 @@ def getReport(reportUUID):
             "avgSleepTime": ['8', '10'], # [hours, minutes]
             "avgWalkingAsymmetry": "7.9",
 
-            "dietLabels": ["Carbohydrates", "Vegetable", "Protein", "idk"],
-            "dietData": [60, 20, 40, 10],
+            "dietLabels": ["Carbohydrates", "Vegetable", "Protein", "idk", "dsa", "dsakdsa"],
+            "dietData": [60, 20, 40, 10, 50, 20],
 
             "bluetoothPieChartLabels": ["Living Room", "Bedroom", "Bathroom", "Kitchen", "Outside"],
             "bluetoothPieChartData": [55, 70, 15, 20, 50],
